@@ -64,8 +64,11 @@ func (m *mkcert) makeCert(hosts []string) {
 	tpl := &x509.Certificate{
 		SerialNumber: randomSerialNumber(),
 		Subject: pkix.Name{
-			Organization:       []string{"mkcert development certificate"},
-			OrganizationalUnit: []string{userAndHostname},
+			// Organization:       []string{"mkcert development certificate"},
+			// OrganizationalUnit: []string{userAndHostname},
+			Organization:       []string{"NCS"},
+			OrganizationalUnit: []string{"Things of Ai"},
+
 		},
 
 		NotBefore: time.Now(), NotAfter: expiration,
@@ -327,13 +330,16 @@ func (m *mkcert) newCA() {
 	tpl := &x509.Certificate{
 		SerialNumber: randomSerialNumber(),
 		Subject: pkix.Name{
-			Organization:       []string{"mkcert development CA"},
-			OrganizationalUnit: []string{userAndHostname},
+			// Organization:       []string{"mkcert development CA"},
+			// OrganizationalUnit: []string{userAndHostname},
 
+			Organization:       []string{"NCS"},
+			OrganizationalUnit: []string{"Things of Ai"},
 			// The CommonName is required by iOS to show the certificate in the
 			// "Certificate Trust Settings" menu.
 			// https://github.com/FiloSottile/mkcert/issues/47
-			CommonName: "mkcert " + userAndHostname,
+			// CommonName: "mkcert " + userAndHostname,
+			CommonName: "Toai",
 		},
 		SubjectKeyId: skid[:],
 
